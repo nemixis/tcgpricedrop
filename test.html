@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>PackDrop price feed — test</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 700px; margin: 40px auto; padding: 0 16px; }
+  input { width: 100%; padding: 8px; font-family: monospace; margin-bottom: 12px; }
+  button { padding: 8px 16px; cursor: pointer; }
+  #status { margin: 12px 0; font-weight: bold; }
+  table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+  th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid #ddd; font-size: 14px; }
+  th { background: #f4f4f4; }
+  .err { color: #b00020; }
+  .ok { color: #0a7a2f; }
+</style>
+</head>
+<body>
+  <h2>PackDrop price feed — test rapide</h2>
+  <p>Colle l'URL jsDelivr de ton fichier de prix (ex: <code>mep.json</code>) et fetch.</p>
+  <input id="url" value="https://cdn.jsdelivr.net/gh/nemixis/tcgpricedrop@main/prices/mep.json">
+  <button onclick="load()">Fetch</button>
+  <div id="status"></div>
+  <table id="results" style="display:none">
+    <thead><tr><th>Nom</th><th>N°</th><th>Finitions / Prix ($)</th></tr></thead>
+    <tbody id="rows"></tbody>
+  </table>
+
+<script>
+async function load() {
+  const url = document.getElementById('url').value.trim();
+  const status = document.getElementById('status');
+  const table = document.getElementById('results');
+  const rows = document.getElementById('rows');
+  rows.innerHTML = '';
+  table.style.display = 'none';
+  status.className = '';
+  status.textContent = 'Fetch en cours...';
+
+  try {
+    // cache-buster so you always see the latest push, not jsDelivr's CDN cache,
+    // while testing — remove this in the real PackDrop client
+    const res = await fetch(url + '?t=' + Date.now());
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+
+    status.className = 'ok';
+    status.textContent =
+      `OK — ${data.cards.length} cartes, mis à jour ${new Date(data.updatedAt).toLocaleString('fr-FR')}`;
+
+    for (const card of data.cards.slice(0, 50)) {
+      const priceStr = card.prices
+        .map(p => `${p.finish}: $${p.market ?? '?'}`)
+        .join(' · ');
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td>${card.name}</td><td>${card.number}</td><td>${priceStr}</td>`;
+      rows.appendChild(tr);
+    }
+    table.style.display = 'table';
+    if (data.cards.length > 50) {
+      status.textContent += ` (affichage limité aux 50 premières)`;
+    }
+  } catch (err) {
+    status.className = 'err';
+    status.textContent = 'Erreur: ' + err.message;
+  }
+}
+</script>
+</body>
+</html>

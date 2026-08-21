@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>PackDrop — vérification du matching prix</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 900px; margin: 30px auto; padding: 0 16px; }
+  textarea { width: 100%; font-family: monospace; font-size: 12px; box-sizing: border-box; }
+  input[type=text] { width: 100%; padding: 8px; font-family: monospace; box-sizing: border-box; }
+  button { padding: 8px 16px; cursor: pointer; margin-top: 8px; }
+  h3 { margin-top: 28px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+  th, td { text-align: left; padding: 5px 8px; border-bottom: 1px solid #ddd; font-size: 13px; }
+  th { background: #f4f4f4; }
+  .ok { color: #0a7a2f; }
+  .warn { color: #b06a00; }
+  .err { color: #b00020; }
+  select { font-family: monospace; }
+  #overrideOut { background: #f7f7f7; padding: 10px; white-space: pre-wrap; font-family: monospace; font-size: 12px; }
+</style>
+</head>
+<body>
+  <h2>Vérification du matching PackDrop ↔ prix</h2>
+
+  <p><b>1.</b> Dans la console DevTools de PackDrop (set déjà chargé), tape :<br>
+  <code>copy(JSON.stringify(pools.mep.main.all.map(c=>({key:c.collector_number,name:c.name}))))</code><br>
+  puis colle le résultat ci-dessous (adapte <code>pools.mep</code> selon le set testé).</p>
+  <textarea id="packdropKeys" rows="4" placeholder='[{"key":"1","name":"Bulbasaur"}, ...]'></textarea>
+
+  <p><b>2.</b> URL du JSON de prix à comparer :</p>
+  <input type="text" id="priceUrl" value="https://cdn.jsdelivr.net/gh/nemixis/tcgpricedrop@main/prices/mep.json">
+
+  <button onclick="compare()">Comparer</button>
+
+  <div id="summary"></div>
+
+  <h3 id="unmatchedTitle" style="display:none">Cartes PackDrop sans prix trouvé</h3>
+  <table id="unmatchedTable" style="display:none">
+    <thead><tr><th>Carte PackDrop</th><th>Clé attendue</th><th>Choisir le bon produit prix</th><th></th></tr></thead>
+    <tbody id="unmatchedRows"></tbody>
+  </table>
+
+  <h3 id="overrideTitle" style="display:none">Override JSON généré</h3>
+  <p id="overrideHint" style="display:none">Colle ceci dans <code>config/overrides/&lt;packdropCode&gt;.json</code> de ton repo <code>tcgpricedrop</code>, puis relance l'Action.</p>
+  <div id="overrideOut" style="display:none"></div>
+
+<script>
+let priceData = null;
+let overrides = [];
+
+async function compare() {
+  const summary = document.getElementById('summary');
+  summary.innerHTML = 'Chargement...';
+
+  let packdropCards;
+  try {
+    packdropCards = JSON.parse(document.getElementById('packdropKeys').value);
+  } catch (e) {
+    summary.innerHTML = '<span class="err">JSON collé invalide côté PackDrop.</span>';
+    return;
+  }
+
+  const url = document.getElementById('priceUrl').value.trim();
+  try {
+    const res = await fetch(url + '?t=' + Date.now());
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    priceData = await res.json();
+  } catch (e) {
+    summary.innerHTML = '<span class="err">Erreur fetch prix: ' + e.message + '</span>';
+    return;
+  }
+
+  const priceByKey = new Map(priceData.cards.map(c => [c.numberKey, c]));
+  const usedKeys = new Set();
+
+  const matched = [];
+  const unmatched = [];
+  for (const card of packdropCards) {
+    const hit = priceByKey.get(String(card.key));
+    if (hit) {
+      matched.push(card);
+      usedKeys.add(hit.numberKey);
+    } else {
+      unmatched.push(card);
+    }
+  }
+  const unusedPrices = priceData.cards.filter(c => !usedKeys.has(c.numberKey));
+
+  summary.innerHTML =
+    `<span class="ok">${matched.length} matchés</span> · ` +
+    `<span class="${unmatched.length ? 'warn' : 'ok'}">${unmatched.length} carte(s) PackDrop sans prix</span> · ` +
+    `<span>${unusedPrices.length} entrée(s) prix non utilisées</span>`;
+
+  const unmatchedTable = document.getElementById('unmatchedTable');
+  const unmatchedRows = document.getElementById('unmatchedRows');
+  const unmatchedTitle = document.getElementById('unmatchedTitle');
+  unmatchedRows.innerHTML = '';
+
+  if (unmatched.length === 0) {
+    unmatchedTable.style.display = 'none';
+    unmatchedTitle.style.display = 'none';
+  } else {
+    unmatchedTitle.style.display = 'block';
+    unmatchedTable.style.display = 'table';
+    for (const card of unmatched) {
+      const tr = document.createElement('tr');
+      const select = document.createElement('select');
+      select.innerHTML = '<option value="">-- choisir --</option>' +
+        unusedPrices.map(p => `<option value="${p.productId}" data-key="${p.numberKey}">${p.name} (#${p.number}, id ${p.productId})</option>`).join('');
+      const td3 = document.createElement('td');
+      td3.appendChild(select);
+      const btn = document.createElement('button');
+      btn.textContent = 'Ajouter override';
+      btn.onclick = () => addOverride(card, select);
+      const td4 = document.createElement('td');
+      td4.appendChild(btn);
+
+      tr.innerHTML = `<td>${card.name}</td><td>${card.key}</td>`;
+      tr.appendChild(td3);
+      tr.appendChild(td4);
+      unmatchedRows.appendChild(tr);
+    }
+  }
+}
+
+function addOverride(card, select) {
+  const productId = select.value;
+  if (!productId) return;
+  const numberKey = select.selectedOptions[0].dataset.key;
+  overrides.push({ productId: Number(productId), numberKey: String(card.key) });
+  renderOverrides();
+}
+
+function renderOverrides() {
+  document.getElementById('overrideTitle').style.display = 'block';
+  document.getElementById('overrideHint').style.display = 'block';
+  const out = document.getElementById('overrideOut');
+  out.style.display = 'block';
+  out.textContent = JSON.stringify(overrides, null, 2);
+}
+</script>
+</body>
+</html>
