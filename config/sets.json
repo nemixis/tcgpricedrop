@@ -7,4 +7,12 @@
     "groupId": 24587,
     "_comment": "Fill in groupId once found via https://tcgcsv.com/tcgplayer/3/groups (search for \"Perfect Order\"). Leaving it null makes the script look it up by name every run, which works but costs one extra request and breaks silently if TCGplayer ever renames the set — pin it once you have it."
   }
+  {
+    "packdropCode": "ah",
+    "name": "Ascended Heroes",
+    "game": "pokemon",
+    "categoryId": 3,
+    "groupId": 24541,
+    "_comment": "Fill in groupId once found via https://tcgcsv.com/tcgplayer/3/groups (search for \"Perfect Order\"). Leaving it null makes the script look it up by name every run, which works but costs one extra request and breaks silently if TCGplayer ever renames the set — pin it once you have it."
+  }
 ]
