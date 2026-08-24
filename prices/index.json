@@ -1,23 +1,23 @@
 {
-  "updatedAt": "2026-08-24T09:53:28.358Z",
+  "updatedAt": "2026-08-24T10:00:10.025Z",
   "sets": [
     {
       "packdropCode": "mep",
       "name": "Perfect Order",
       "cardCount": 124,
-      "updatedAt": "2026-08-24T09:53:27.860Z"
+      "updatedAt": "2026-08-24T10:00:09.563Z"
     },
     {
       "packdropCode": "ah",
       "name": "Ascended Heroes",
       "cardCount": 575,
-      "updatedAt": "2026-08-24T09:53:28.115Z"
+      "updatedAt": "2026-08-24T10:00:09.792Z"
     },
     {
       "packdropCode": "ff-main",
       "name": "FINAL FANTASY",
       "cardCount": 645,
-      "updatedAt": "2026-08-24T09:53:28.356Z"
+      "updatedAt": "2026-08-24T10:00:10.022Z"
     }
   ]
 }
