@@ -1,47 +1,47 @@
 {
-  "updatedAt": "2026-08-24T12:21:07.375Z",
+  "updatedAt": "2026-08-24T21:50:00.379Z",
   "sets": [
     {
       "packdropCode": "mep",
       "name": "Perfect Order",
       "cardCount": 124,
-      "updatedAt": "2026-08-24T12:21:05.944Z"
+      "updatedAt": "2026-08-24T21:49:59.008Z"
     },
     {
       "packdropCode": "ah",
       "name": "Ascended Heroes",
       "cardCount": 575,
-      "updatedAt": "2026-08-24T12:21:06.178Z"
+      "updatedAt": "2026-08-24T21:49:59.239Z"
     },
     {
       "packdropCode": "ff-main",
       "name": "FINAL FANTASY",
       "cardCount": 642,
-      "updatedAt": "2026-08-24T12:21:06.438Z"
+      "updatedAt": "2026-08-24T21:49:59.479Z"
     },
     {
       "packdropCode": "ff-commander",
       "name": "Commander: FINAL FANTASY",
       "cardCount": 818,
-      "updatedAt": "2026-08-24T12:21:06.666Z"
+      "updatedAt": "2026-08-24T21:49:59.717Z"
     },
     {
       "packdropCode": "ff-bonus",
       "name": "FINAL FANTASY: Through the Ages",
       "cardCount": 66,
-      "updatedAt": "2026-08-24T12:21:06.895Z"
+      "updatedAt": "2026-08-24T21:49:59.933Z"
     },
     {
       "packdropCode": "ff-art",
       "name": "Art Series: FINAL FANTASY",
       "cardCount": 130,
-      "updatedAt": "2026-08-24T12:21:07.126Z"
+      "updatedAt": "2026-08-24T21:50:00.153Z"
     },
     {
-      "packdropCode": "eoe",
+      "packdropCode": "eoe-main",
       "name": "Edge of Eternities",
       "cardCount": 414,
-      "updatedAt": "2026-08-24T12:21:07.373Z"
+      "updatedAt": "2026-08-24T21:50:00.377Z"
     }
   ]
 }
