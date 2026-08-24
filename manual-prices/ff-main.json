@@ -8,5 +8,25 @@
         "market": 90.58
       }
     ]
+  },
+  {
+    "numberKey": "551f",
+    "name": "Traveling Chocobo",
+    "prices": [
+      {
+        "finish": "Normal",
+        "market": 60000
+      }
+    ]
+  },
+  {
+    "numberKey": "551",
+    "name": "Traveling Chocobo",
+    "prices": [
+      {
+        "finish": "Normal",
+        "market": 5950
+      }
+    ]
   }
 ]
