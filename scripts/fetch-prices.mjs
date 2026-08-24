@@ -153,9 +153,14 @@ async function main() {
 
       const manualEntries = await loadManualPrices(set.packdropCode);
       const existingKeys = new Set(result.cards.map((c) => c.numberKey));
+      let mergedCount = 0;
       for (const entry of manualEntries) {
         if (existingKeys.has(entry.numberKey)) continue; // live data wins
         result.cards.push({ ...entry, manual: true });
+        mergedCount++;
+      }
+      if (manualEntries.length > 0) {
+        console.log(`  -> manual prices: ${mergedCount} merged, ${manualEntries.length - mergedCount} skipped (already had live data)`);
       }
 
       const outPath = path.join(outDir, `${set.packdropCode}.json`);
