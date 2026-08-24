@@ -40,5 +40,12 @@
     "game": "magic",
     "categoryId": 1,
     "groupId": 24341
+  },
+  {
+    "packdropCode": "eoe",
+    "name": "Edge of Eternities",
+    "game": "magic",
+    "categoryId": 1,
+    "groupId": 24233
   }
 ]
