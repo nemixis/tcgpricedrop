@@ -49,8 +49,27 @@ function normalizeNumber(raw) {
   return match ? match[1] : raw;
 }
 
+// Optional per-set manual overrides for cards the automatic Number-field
+// matching gets wrong (promos, alt-art duplicates, TCGplayer typos, etc.).
+// File: config/overrides/<packdropCode>.json — an array of either
+//   { "productId": 451396, "numberKey": "139" }   -> force this key
+//   { "productId": 451397, "exclude": true }      -> drop this product entirely
+async function loadOverrides(packdropCode) {
+  const overridePath = path.resolve(`config/overrides/${packdropCode}.json`);
+  try {
+    const raw = await readFile(overridePath, 'utf-8');
+    const list = JSON.parse(raw);
+    const map = new Map();
+    for (const entry of list) map.set(entry.productId, entry);
+    return map;
+  } catch {
+    return new Map(); // no override file for this set — fine, that's the default
+  }
+}
+
 async function fetchSetPrices(set) {
   const groupId = await resolveGroupId(set.categoryId, set.name, set.groupId);
+  const overrides = await loadOverrides(set.packdropCode);
 
   const products = await fetchJson(`${BASE}/${set.categoryId}/${groupId}/products`);
   await sleep(SLEEP_MS);
@@ -71,16 +90,19 @@ async function fetchSetPrices(set) {
 
   const cards = [];
   for (const product of products) {
+    const override = overrides.get(product.productId);
+    if (override?.exclude) continue;
+
     const numberField = product.extendedData?.find((f) => f.name === 'Number');
-    if (!numberField) continue; // sealed product, not a card
+    if (!numberField && !override?.numberKey) continue; // sealed product, not a card
 
     const productPrices = pricesByProduct.get(product.productId) || [];
     if (productPrices.length === 0) continue; // no price data yet, skip
 
     cards.push({
       name: product.name,
-      number: numberField.value,
-      numberKey: normalizeNumber(numberField.value),
+      number: numberField?.value ?? null,
+      numberKey: override?.numberKey ?? normalizeNumber(numberField.value),
       productId: product.productId,
       url: product.url,
       prices: productPrices,
@@ -93,6 +115,26 @@ async function fetchSetPrices(set) {
     updatedAt: new Date().toISOString(),
     cards,
   };
+}
+
+// Manually-priced cards for sets/cards that have no TCGplayer product to
+// fetch from at all (not a matching problem — genuinely no listing yet,
+// e.g. an ultra-low-pop chase with too few sales for TCGplayer to price).
+// File: config/manual-prices/<packdropCode>.json — an array of:
+//   { "numberKey": "551", "name": "Traveling Chocobo", "prices": [{ "finish": "Normal", "market": 350 }] }
+// Merged into the output as-is (same shape as a fetched card), tagged
+// `manual: true` for transparency. Never overwrites a real fetched entry
+// for the same numberKey — if TCGplayer starts pricing it for real, the
+// live data wins automatically and the manual entry becomes a no-op
+// (safe to leave the file in place rather than remembering to clean it up).
+async function loadManualPrices(packdropCode) {
+  const manualPath = path.resolve(`config/manual-prices/${packdropCode}.json`);
+  try {
+    const raw = await readFile(manualPath, 'utf-8');
+    return JSON.parse(raw);
+  } catch {
+    return []; // no manual-prices file for this set — fine, that's the default
+  }
 }
 
 async function main() {
@@ -108,6 +150,14 @@ async function main() {
     console.log(`Fetching ${set.name} (${set.packdropCode})...`);
     try {
       const result = await fetchSetPrices(set);
+
+      const manualEntries = await loadManualPrices(set.packdropCode);
+      const existingKeys = new Set(result.cards.map((c) => c.numberKey));
+      for (const entry of manualEntries) {
+        if (existingKeys.has(entry.numberKey)) continue; // live data wins
+        result.cards.push({ ...entry, manual: true });
+      }
+
       const outPath = path.join(outDir, `${set.packdropCode}.json`);
       await writeFile(outPath, JSON.stringify(result));
       console.log(`  -> ${result.cards.length} cards written to ${outPath}`);
