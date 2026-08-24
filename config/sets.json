@@ -19,5 +19,12 @@
     "game": "magic",
     "categoryId": 1,
     "groupId": 24219
+  },
+    {
+    "packdropCode": "ff-commander",
+    "name": "Commander: FINAL FANTASY",
+    "game": "magic",
+    "categoryId": 1,
+    "groupId": 24220
   }
 ]
