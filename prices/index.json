@@ -1,35 +1,35 @@
 {
-  "updatedAt": "2026-08-24T11:38:46.680Z",
+  "updatedAt": "2026-08-24T11:44:04.950Z",
   "sets": [
     {
       "packdropCode": "mep",
       "name": "Perfect Order",
       "cardCount": 124,
-      "updatedAt": "2026-08-24T11:38:45.783Z"
+      "updatedAt": "2026-08-24T11:44:04.060Z"
     },
     {
       "packdropCode": "ah",
       "name": "Ascended Heroes",
       "cardCount": 575,
-      "updatedAt": "2026-08-24T11:38:46.012Z"
+      "updatedAt": "2026-08-24T11:44:04.288Z"
     },
     {
       "packdropCode": "ff-main",
       "name": "FINAL FANTASY",
       "cardCount": 642,
-      "updatedAt": "2026-08-24T11:38:46.237Z"
+      "updatedAt": "2026-08-24T11:44:04.510Z"
     },
     {
       "packdropCode": "ff-commander",
       "name": "Commander: FINAL FANTASY",
       "cardCount": 818,
-      "updatedAt": "2026-08-24T11:38:46.465Z"
+      "updatedAt": "2026-08-24T11:44:04.735Z"
     },
     {
       "packdropCode": "ff-bonus",
       "name": "FINAL FANTASY: Through the Ages",
-      "cardCount": 65,
-      "updatedAt": "2026-08-24T11:38:46.679Z"
+      "cardCount": 66,
+      "updatedAt": "2026-08-24T11:44:04.949Z"
     }
   ]
 }
