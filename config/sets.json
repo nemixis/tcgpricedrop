@@ -26,5 +26,12 @@
     "game": "magic",
     "categoryId": 1,
     "groupId": 24220
+  },
+      {
+    "packdropCode": "ff-bonus",
+    "name": "FINAL FANTASY: Through the Ages",
+    "game": "magic",
+    "categoryId": 1,
+    "groupId": 24226
   }
 ]
