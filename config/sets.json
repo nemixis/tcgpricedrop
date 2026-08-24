@@ -12,5 +12,12 @@
     "game": "pokemon",
     "categoryId": 3,
     "groupId": 24541
-  }
+  },
+  {
+    "packdropCode": "ff-main",
+    "name": "FINAL FANTASY",
+    "game": "magic",
+    "categoryId": 1,
+    "groupId": "24219"
+  },
 ]
