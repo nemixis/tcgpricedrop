@@ -56,13 +56,6 @@
     "groupId": 24236
   },
   {
-    "packdropCode": "eoe-commander",
-    "name": "Commander: Edge of Eternities",
-    "game": "magic",
-    "categoryId": 1,
-    "groupId": 24236
-  },
-  {
     "packdropCode": "eoe-bonus",
     "name": "Edge of Eternities: Stellar Sights",
     "game": "magic",
@@ -77,7 +70,7 @@
     "groupId": 24377
   },
   {
-    "packdropCode": "specialGuests",
+    "packdropCode": "mtg-special-guests",
     "name": "Special Guests",
     "game": "magic",
     "categoryId": 1,
