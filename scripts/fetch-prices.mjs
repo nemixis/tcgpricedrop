@@ -129,11 +129,19 @@ async function fetchSetPrices(set) {
 // (safe to leave the file in place rather than remembering to clean it up).
 async function loadManualPrices(packdropCode) {
   const manualPath = path.resolve(`config/manual-prices/${packdropCode}.json`);
+  let raw;
   try {
-    const raw = await readFile(manualPath, 'utf-8');
-    return JSON.parse(raw);
+    raw = await readFile(manualPath, 'utf-8');
   } catch {
     return []; // no manual-prices file for this set — fine, that's the default
+  }
+  try {
+    return JSON.parse(raw);
+  } catch (err) {
+    // File exists but is malformed — this is a real mistake, not an
+    // absent-file default, so don't swallow it silently like the missing
+    // case above. Surface it and fail the run so it can't ship unnoticed.
+    throw new Error(`config/manual-prices/${packdropCode}.json is not valid JSON: ${err.message}`);
   }
 }
 
