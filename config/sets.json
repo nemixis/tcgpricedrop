@@ -47,5 +47,33 @@
     "game": "magic",
     "categoryId": 1,
     "groupId": 24233
+  },
+  {
+    "packdropCode": "eoe-commander",
+    "name": "Commander: Edge of Eternities",
+    "game": "magic",
+    "categoryId": 1,
+    "groupId": 24236
+  },
+  {
+    "packdropCode": "eoe-commander",
+    "name": "Commander: Edge of Eternities",
+    "game": "magic",
+    "categoryId": 1,
+    "groupId": 24236
+  },
+  {
+    "packdropCode": "eoe-bonus",
+    "name": "Edge of Eternities: Stellar Sights",
+    "game": "magic",
+    "categoryId": 1,
+    "groupId": 24361
+  },
+  {
+    "packdropCode": "eoe-art",
+    "name": "Art Series: Edge of Eternities",
+    "game": "magic",
+    "categoryId": 1,
+    "groupId": 24377
   }
 ]
