@@ -1,71 +1,71 @@
 {
-  "updatedAt": "2026-09-08T23:28:02.547Z",
+  "updatedAt": "2026-09-09T23:22:06.466Z",
   "sets": [
     {
       "packdropCode": "mep",
       "name": "Perfect Order",
       "cardCount": 124,
-      "updatedAt": "2026-09-08T23:28:00.246Z"
+      "updatedAt": "2026-09-09T23:22:04.047Z"
     },
     {
       "packdropCode": "ah",
       "name": "Ascended Heroes",
       "cardCount": 575,
-      "updatedAt": "2026-09-08T23:28:00.497Z"
+      "updatedAt": "2026-09-09T23:22:04.326Z"
     },
     {
       "packdropCode": "ff-main",
       "name": "FINAL FANTASY",
       "cardCount": 649,
-      "updatedAt": "2026-09-08T23:28:00.733Z"
+      "updatedAt": "2026-09-09T23:22:04.577Z"
     },
     {
       "packdropCode": "ff-commander",
       "name": "Commander: FINAL FANTASY",
       "cardCount": 818,
-      "updatedAt": "2026-09-08T23:28:00.971Z"
+      "updatedAt": "2026-09-09T23:22:04.823Z"
     },
     {
       "packdropCode": "ff-bonus",
       "name": "FINAL FANTASY: Through the Ages",
       "cardCount": 66,
-      "updatedAt": "2026-09-08T23:28:01.195Z"
+      "updatedAt": "2026-09-09T23:22:05.057Z"
     },
     {
       "packdropCode": "ff-art",
       "name": "Art Series: FINAL FANTASY",
       "cardCount": 130,
-      "updatedAt": "2026-09-08T23:28:01.419Z"
+      "updatedAt": "2026-09-09T23:22:05.289Z"
     },
     {
       "packdropCode": "eoe-main",
       "name": "Edge of Eternities",
       "cardCount": 414,
-      "updatedAt": "2026-09-08T23:28:01.649Z"
+      "updatedAt": "2026-09-09T23:22:05.526Z"
     },
     {
       "packdropCode": "eoe-commander",
       "name": "Commander: Edge of Eternities",
       "cardCount": 213,
-      "updatedAt": "2026-09-08T23:28:01.874Z"
+      "updatedAt": "2026-09-09T23:22:05.761Z"
     },
     {
       "packdropCode": "eoe-bonus",
       "name": "Edge of Eternities: Stellar Sights",
       "cardCount": 180,
-      "updatedAt": "2026-09-08T23:28:02.098Z"
+      "updatedAt": "2026-09-09T23:22:05.996Z"
     },
     {
       "packdropCode": "eoe-art",
       "name": "Art Series: Edge of Eternities",
       "cardCount": 107,
-      "updatedAt": "2026-09-08T23:28:02.321Z"
+      "updatedAt": "2026-09-09T23:22:06.233Z"
     },
     {
       "packdropCode": "mtg-special-guests",
       "name": "Special Guests",
-      "cardCount": 163,
-      "updatedAt": "2026-09-08T23:28:02.545Z"
+      "cardCount": 173,
+      "updatedAt": "2026-09-09T23:22:06.465Z"
     }
   ]
 }
