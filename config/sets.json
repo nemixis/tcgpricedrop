@@ -75,5 +75,26 @@
     "game": "magic",
     "categoryId": 1,
     "groupId": 23318
+  },
+  {
+    "packdropCode": "spm-main",
+    "name": "Marvel's Spider-Man",
+    "game": "magic",
+    "categoryId": 1,
+    "groupId": 24245
+  },
+  {
+    "packdropCode": "spm-art",
+    "name": "Art Series: Marvel's Spider-Man",
+    "game": "magic",
+    "categoryId": 1,
+    "groupId": 24424
+  },
+  {
+    "packdropCode": "spm-welcome",
+    "name": "Marvel's Spider-Man: Eternal-Legal",
+    "game": "magic",
+    "categoryId": 1,
+    "groupId": 24246
   }
 ]
