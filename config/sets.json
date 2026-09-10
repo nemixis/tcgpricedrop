@@ -96,5 +96,12 @@
     "game": "magic",
     "categoryId": 1,
     "groupId": 24246
+  },
+  {
+    "packdropCode": "spm-bonus",
+    "name": "Marvel Universe Eternal-Legal",
+    "game": "magic",
+    "categoryId": 1,
+    "groupId": 24432
   }
 ]
