@@ -14,6 +14,12 @@
     "groupId": 24541
   },
   {
+    "packdropCode": "cri",
+    "name": "Chaos Ascendant",
+    "categoryId": 3,
+    "groupId": 24655
+  },
+  {
     "packdropCode": "ff-main",
     "name": "FINAL FANTASY",
     "game": "magic",
