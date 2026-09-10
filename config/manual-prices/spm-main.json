@@ -1,4 +1,5 @@
-{
+[
+  {
     "numberKey": "242",
     "name": "The Soul Stone",
     "prices": [
@@ -38,3 +39,4 @@
       }
     ]
   }
+]
