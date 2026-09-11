@@ -1,119 +1,119 @@
 {
-  "updatedAt": "2026-09-11T07:15:59.121Z",
+  "updatedAt": "2026-09-11T23:23:06.271Z",
   "sets": [
     {
       "packdropCode": "mep",
       "name": "Perfect Order",
       "cardCount": 124,
-      "updatedAt": "2026-09-11T07:15:55.196Z"
+      "updatedAt": "2026-09-11T23:23:01.657Z"
     },
     {
       "packdropCode": "ah",
       "name": "Ascended Heroes",
       "cardCount": 575,
-      "updatedAt": "2026-09-11T07:15:55.435Z"
+      "updatedAt": "2026-09-11T23:23:01.967Z"
     },
     {
       "packdropCode": "cri",
       "name": "Chaos Ascendant",
       "cardCount": 122,
-      "updatedAt": "2026-09-11T07:15:55.650Z"
+      "updatedAt": "2026-09-11T23:23:02.219Z"
     },
     {
       "packdropCode": "pbl",
       "name": "Pitch Black",
       "cardCount": 120,
-      "updatedAt": "2026-09-11T07:15:55.865Z"
+      "updatedAt": "2026-09-11T23:23:02.467Z"
     },
     {
       "packdropCode": "meg",
       "name": "Mega Evolution",
       "cardCount": 188,
-      "updatedAt": "2026-09-11T07:15:56.080Z"
+      "updatedAt": "2026-09-11T23:23:02.720Z"
     },
     {
       "packdropCode": "pfl",
       "name": "Phantasmal Flames",
       "cardCount": 130,
-      "updatedAt": "2026-09-11T07:15:56.295Z"
+      "updatedAt": "2026-09-11T23:23:02.972Z"
     },
     {
       "packdropCode": "ff-main",
       "name": "FINAL FANTASY",
       "cardCount": 649,
-      "updatedAt": "2026-09-11T07:15:56.524Z"
+      "updatedAt": "2026-09-11T23:23:03.250Z"
     },
     {
       "packdropCode": "ff-commander",
       "name": "Commander: FINAL FANTASY",
       "cardCount": 818,
-      "updatedAt": "2026-09-11T07:15:56.756Z"
+      "updatedAt": "2026-09-11T23:23:03.514Z"
     },
     {
       "packdropCode": "ff-bonus",
       "name": "FINAL FANTASY: Through the Ages",
       "cardCount": 66,
-      "updatedAt": "2026-09-11T07:15:56.971Z"
+      "updatedAt": "2026-09-11T23:23:03.765Z"
     },
     {
       "packdropCode": "ff-art",
       "name": "Art Series: FINAL FANTASY",
       "cardCount": 130,
-      "updatedAt": "2026-09-11T07:15:57.184Z"
+      "updatedAt": "2026-09-11T23:23:04.015Z"
     },
     {
       "packdropCode": "eoe-main",
       "name": "Edge of Eternities",
       "cardCount": 414,
-      "updatedAt": "2026-09-11T07:15:57.403Z"
+      "updatedAt": "2026-09-11T23:23:04.277Z"
     },
     {
       "packdropCode": "eoe-commander",
       "name": "Commander: Edge of Eternities",
       "cardCount": 213,
-      "updatedAt": "2026-09-11T07:15:57.618Z"
+      "updatedAt": "2026-09-11T23:23:04.528Z"
     },
     {
       "packdropCode": "eoe-bonus",
       "name": "Edge of Eternities: Stellar Sights",
       "cardCount": 180,
-      "updatedAt": "2026-09-11T07:15:57.836Z"
+      "updatedAt": "2026-09-11T23:23:04.779Z"
     },
     {
       "packdropCode": "eoe-art",
       "name": "Art Series: Edge of Eternities",
-      "cardCount": 107,
-      "updatedAt": "2026-09-11T07:15:58.048Z"
+      "cardCount": 106,
+      "updatedAt": "2026-09-11T23:23:05.025Z"
     },
     {
       "packdropCode": "mtg-special-guests",
       "name": "Special Guests",
       "cardCount": 173,
-      "updatedAt": "2026-09-11T07:15:58.262Z"
+      "updatedAt": "2026-09-11T23:23:05.272Z"
     },
     {
       "packdropCode": "spm-main",
       "name": "Marvel's Spider-Man",
       "cardCount": 292,
-      "updatedAt": "2026-09-11T07:15:58.481Z"
+      "updatedAt": "2026-09-11T23:23:05.525Z"
     },
     {
       "packdropCode": "spm-art",
       "name": "Art Series: Marvel's Spider-Man",
       "cardCount": 108,
-      "updatedAt": "2026-09-11T07:15:58.695Z"
+      "updatedAt": "2026-09-11T23:23:05.772Z"
     },
     {
       "packdropCode": "spm-welcome",
       "name": "Marvel's Spider-Man: Eternal-Legal",
       "cardCount": 26,
-      "updatedAt": "2026-09-11T07:15:58.906Z"
+      "updatedAt": "2026-09-11T23:23:06.025Z"
     },
     {
       "packdropCode": "spm-bonus",
       "name": "Marvel Universe Eternal-Legal",
       "cardCount": 100,
-      "updatedAt": "2026-09-11T07:15:59.120Z"
+      "updatedAt": "2026-09-11T23:23:06.270Z"
     }
   ]
 }
