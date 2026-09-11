@@ -26,6 +26,18 @@
     "groupId": 24688
   },
   {
+    "packdropCode": "meg",
+    "name": "Mega Evolution",
+    "categoryId": 3,
+    "groupId": 24380
+  },
+  {
+    "packdropCode": "pfl",
+    "name": "Phantasmal Flames",
+    "categoryId": 3,
+    "groupId": 24448
+  },
+  {
     "packdropCode": "ff-main",
     "name": "FINAL FANTASY",
     "game": "magic",
