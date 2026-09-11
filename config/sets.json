@@ -20,6 +20,12 @@
     "groupId": 24655
   },
   {
+    "packdropCode": "pbl",
+    "name": "Pitch Black",
+    "categoryId": 3,
+    "groupId": 24688
+  },
+  {
     "packdropCode": "ff-main",
     "name": "FINAL FANTASY",
     "game": "magic",
