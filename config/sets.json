@@ -127,13 +127,5 @@
     "game": "magic",
     "categoryId": 1,
     "groupId": 24432
-  },
-  {
-    "packdropCode": "pl26",
-    "name": "Year of the Horse 2026",
-    "game": "magic",
-    "categoryId": 1,
-    "groupId": 2067,
-    "productIds": [684549, 684550, 684551, 684582, 684583]
   }
 ]
