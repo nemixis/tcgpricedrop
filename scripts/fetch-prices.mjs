@@ -71,10 +71,32 @@ async function fetchSetPrices(set) {
   const groupId = await resolveGroupId(set.categoryId, set.name, set.groupId);
   const overrides = await loadOverrides(set.packdropCode);
 
-  const products = await fetchJson(`${BASE}/${set.categoryId}/${groupId}/products`);
+  const allProducts = await fetchJson(`${BASE}/${set.categoryId}/${groupId}/products`);
   await sleep(SLEEP_MS);
   const prices = await fetchJson(`${BASE}/${set.categoryId}/${groupId}/prices`);
   await sleep(SLEEP_MS);
+
+  // Most groups belong to exactly one real set, so every product in them is
+  // fair game. Some groups (TCGplayer's "Standard Showdown Promos" is the
+  // one that bit us) are actually a shared bucket for several unrelated
+  // small promo drops — Year of the Horse 2026 sits in the same group as
+  // Year of the Dragon 2024, Year of the Snake 2025, and assorted one-off
+  // promo cards, each with its OWN "Number" field that restarts from 1. For
+  // a set like that, config/sets.json carries an explicit productIds
+  // allowlist so only products that actually belong to THIS set are ever
+  // considered — everything else in the shared group is excluded outright,
+  // rather than trusting the Number field to disambiguate them (it can't).
+  const products = set.productIds
+    ? allProducts.filter((p) => set.productIds.includes(p.productId))
+    : allProducts;
+
+  if (set.productIds) {
+    const found = new Set(products.map((p) => p.productId));
+    const missing = set.productIds.filter((id) => !found.has(id));
+    if (missing.length) {
+      console.warn(`  WARNING: ${set.packdropCode} productIds not found in group ${groupId}: ${missing.join(', ')}`);
+    }
+  }
 
   // Group prices by productId since one product can have several rows
   // (one per subTypeName — Normal, Holofoil, Reverse Holofoil, etc.)
@@ -89,6 +111,13 @@ async function fetchSetPrices(set) {
   }
 
   const cards = [];
+  // Tracks which product has already claimed each numberKey. A productIds
+  // allowlist (above) prevents the known failure mode, but this is the
+  // safety net for one we haven't hit yet — without it, two products
+  // colliding on the same key silently overwrite each other client-side
+  // (see indexPriceFeed()'s Map.set in index.html) and ship a wrong price
+  // with no error anywhere. Loud and build-failing beats silent and wrong.
+  const seenKeys = new Map(); // numberKey -> product name
   for (const product of products) {
     const override = overrides.get(product.productId);
     if (override?.exclude) continue;
@@ -99,10 +128,24 @@ async function fetchSetPrices(set) {
     const productPrices = pricesByProduct.get(product.productId) || [];
     if (productPrices.length === 0) continue; // no price data yet, skip
 
+    const numberKey = override?.numberKey ?? normalizeNumber(numberField.value);
+
+    if (seenKeys.has(numberKey)) {
+      console.warn(
+        `  WARNING: ${set.packdropCode} numberKey "${numberKey}" is claimed by both ` +
+        `"${seenKeys.get(numberKey)}" and "${product.name}" (group ${groupId}). ` +
+        `Add a productIds allowlist to config/sets.json, or a numberKey override in ` +
+        `config/overrides/${set.packdropCode}.json, to disambiguate.`
+      );
+      process.exitCode = 1; // fail the run rather than ship a silently-corrupted feed
+      continue; // keep whichever one claimed the key first, drop this one
+    }
+    seenKeys.set(numberKey, product.name);
+
     cards.push({
       name: product.name,
       number: numberField?.value ?? null,
-      numberKey: override?.numberKey ?? normalizeNumber(numberField.value),
+      numberKey,
       productId: product.productId,
       url: product.url,
       prices: productPrices,
