@@ -67,6 +67,69 @@ async function loadOverrides(packdropCode) {
   }
 }
 
+// Reduces a product name to its "core" identity for same-card comparison:
+// everything before the FIRST parenthetical group. Within a single
+// numberKey bucket (see below) that's enough — "Command Tower (0382)" and
+// "Command Tower (0382) (Surge Foil)" both reduce to "Command Tower", and
+// since they already share a numberKey we know they're the same printed
+// position, so the parenthetical is just a variant tag, not distinguishing
+// identity. "Emiel the Blessed (Year of the Horse 2026)" and "Caustic
+// Bronco (Year of the Horse 2026)" reduce to different core names, which is
+// exactly the signal that they are NOT the same card.
+function coreName(name) {
+  const i = name.indexOf('(');
+  return (i === -1 ? name : name.slice(0, i)).trim().toLowerCase();
+}
+function isTokenName(name) {
+  return /\btoken\b/i.test(name);
+}
+
+// Resolves every product sharing one numberKey down to a single card entry.
+//  - All-token group (no real card at that number): keep just the first,
+//    nothing worth warning about.
+//  - Exactly one non-token product: that's the real card — any tokens
+//    sharing its number are silently dropped. This is the everyday case
+//    for Commander/token-heavy sets, not a bug.
+//  - Multiple non-token products with the same core name (foil, Poke Ball
+//    pattern, Surge Foil, Gold-Stamped Signature, etc.): merge their price
+//    rows into one entry so every finish is actually available to the
+//    client, instead of one variant silently winning a Map.set race.
+//  - Multiple non-token products with DIFFERENT core names: this is a
+//    genuine collision — two unrelated cards claiming the same numberKey,
+//    which is exactly what happened with pl26 pulling from a shared
+//    promo group. No safe automatic choice exists here, so this is the
+//    one case that still warns loudly and fails the build.
+function resolveNumberKeyGroup(numberKey, group, setCode) {
+  const real = group.filter((g) => !isTokenName(g.product.name));
+  const pool = real.length ? real : group; // all-token group: nothing better to prefer
+
+  const byCore = new Map();
+  for (const entry of pool) {
+    const key = coreName(entry.product.name);
+    if (!byCore.has(key)) byCore.set(key, []);
+    byCore.get(key).push(entry);
+  }
+
+  if (byCore.size > 1) {
+    const names = pool.map((e) => `"${e.product.name}"`).join(' vs ');
+    console.warn(
+      `  WARNING: ${setCode} numberKey "${numberKey}" has unrelated products claiming it: ${names} ` +
+      `(group has no shared identity). Add a productIds allowlist to config/sets.json, or a ` +
+      `numberKey override in config/overrides/${setCode}.json, to disambiguate.`
+    );
+    process.exitCode = 1;
+    return pool[0]; // keep the run producing output for everything else; this entry gets fixed via override
+  }
+
+  const merged = byCore.values().next().value; // byCore.size === 1 here, so this is just `pool`
+  const base = merged[0].product;
+  const allPrices = merged.flatMap((e) => e.prices);
+  return {
+    product: base,
+    prices: allPrices,
+  };
+}
+
 async function fetchSetPrices(set) {
   const groupId = await resolveGroupId(set.categoryId, set.name, set.groupId);
   const overrides = await loadOverrides(set.packdropCode);
@@ -110,14 +173,10 @@ async function fetchSetPrices(set) {
     });
   }
 
-  const cards = [];
-  // Tracks which product has already claimed each numberKey. A productIds
-  // allowlist (above) prevents the known failure mode, but this is the
-  // safety net for one we haven't hit yet — without it, two products
-  // colliding on the same key silently overwrite each other client-side
-  // (see indexPriceFeed()'s Map.set in index.html) and ship a wrong price
-  // with no error anywhere. Loud and build-failing beats silent and wrong.
-  const seenKeys = new Map(); // numberKey -> product name
+  // Bucket every priced product by its raw numberKey first — this is the
+  // unit resolveNumberKeyGroup() reasons about (see its comment for why
+  // sharing a numberKey is usually fine and only sometimes a real problem).
+  const byNumberKey = new Map();
   for (const product of products) {
     const override = overrides.get(product.productId);
     if (override?.exclude) continue;
@@ -129,27 +188,26 @@ async function fetchSetPrices(set) {
     if (productPrices.length === 0) continue; // no price data yet, skip
 
     const numberKey = override?.numberKey ?? normalizeNumber(numberField.value);
+    if (!byNumberKey.has(numberKey)) byNumberKey.set(numberKey, []);
+    byNumberKey.get(numberKey).push({ product, prices: productPrices });
+  }
 
-    if (seenKeys.has(numberKey)) {
-      console.warn(
-        `  WARNING: ${set.packdropCode} numberKey "${numberKey}" is claimed by both ` +
-        `"${seenKeys.get(numberKey)}" and "${product.name}" (group ${groupId}). ` +
-        `Add a productIds allowlist to config/sets.json, or a numberKey override in ` +
-        `config/overrides/${set.packdropCode}.json, to disambiguate.`
-      );
-      process.exitCode = 1; // fail the run rather than ship a silently-corrupted feed
-      continue; // keep whichever one claimed the key first, drop this one
-    }
-    seenKeys.set(numberKey, product.name);
-
+  let mergedCount = 0;
+  const cards = [];
+  for (const [numberKey, group] of byNumberKey) {
+    const resolved = group.length === 1 ? group[0] : resolveNumberKeyGroup(numberKey, group, set.packdropCode);
+    if (group.length > 1) mergedCount++;
     cards.push({
-      name: product.name,
-      number: numberField?.value ?? null,
+      name: resolved.product.name,
+      number: resolved.product.extendedData?.find((f) => f.name === 'Number')?.value ?? null,
       numberKey,
-      productId: product.productId,
-      url: product.url,
-      prices: productPrices,
+      productId: resolved.product.productId,
+      url: resolved.product.url,
+      prices: resolved.prices,
     });
+  }
+  if (mergedCount) {
+    console.log(`  -> ${mergedCount} numberKey(s) had multiple products (variants/tokens), resolved automatically`);
   }
 
   return {
