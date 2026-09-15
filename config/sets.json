@@ -38,12 +38,6 @@
     "groupId": 24448
   },
   {
-    "packdropCode": "tot24",
-    "name": "Trick or Trade 2024",
-    "categoryId": 3,
-    "groupId": 23561
-  },
-  {
     "packdropCode": "ff-main",
     "name": "FINAL FANTASY",
     "game": "magic",
@@ -139,7 +133,7 @@
     "name": "Year of the Horse 2026",
     "game": "magic",
     "categoryId": 1,
-    "groupId": 2067
+    "groupId": 2067,
     "productIds": [684549, 684550, 684551, 684582, 684583]
   }
 ]
