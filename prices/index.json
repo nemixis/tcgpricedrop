@@ -1,119 +1,119 @@
 {
-  "updatedAt": "2026-09-19T23:15:43.785Z",
+  "updatedAt": "2026-09-20T23:19:29.215Z",
   "sets": [
     {
       "packdropCode": "mep",
       "name": "Perfect Order",
       "cardCount": 124,
-      "updatedAt": "2026-09-19T23:15:39.873Z"
+      "updatedAt": "2026-09-20T23:19:24.090Z"
     },
     {
       "packdropCode": "ah",
       "name": "Ascended Heroes",
       "cardCount": 575,
-      "updatedAt": "2026-09-19T23:15:40.106Z"
+      "updatedAt": "2026-09-20T23:19:24.486Z"
     },
     {
       "packdropCode": "cri",
       "name": "Chaos Ascendant",
       "cardCount": 122,
-      "updatedAt": "2026-09-19T23:15:40.321Z"
+      "updatedAt": "2026-09-20T23:19:24.759Z"
     },
     {
       "packdropCode": "pbl",
       "name": "Pitch Black",
       "cardCount": 120,
-      "updatedAt": "2026-09-19T23:15:40.534Z"
+      "updatedAt": "2026-09-20T23:19:25.037Z"
     },
     {
       "packdropCode": "meg",
       "name": "Mega Evolution",
       "cardCount": 188,
-      "updatedAt": "2026-09-19T23:15:40.749Z"
+      "updatedAt": "2026-09-20T23:19:25.319Z"
     },
     {
       "packdropCode": "pfl",
       "name": "Phantasmal Flames",
       "cardCount": 130,
-      "updatedAt": "2026-09-19T23:15:40.964Z"
+      "updatedAt": "2026-09-20T23:19:25.594Z"
     },
     {
       "packdropCode": "ff-main",
       "name": "FINAL FANTASY",
       "cardCount": 649,
-      "updatedAt": "2026-09-19T23:15:41.190Z"
+      "updatedAt": "2026-09-20T23:19:25.908Z"
     },
     {
       "packdropCode": "ff-commander",
       "name": "Commander: FINAL FANTASY",
       "cardCount": 818,
-      "updatedAt": "2026-09-19T23:15:41.421Z"
+      "updatedAt": "2026-09-20T23:19:26.203Z"
     },
     {
       "packdropCode": "ff-bonus",
       "name": "FINAL FANTASY: Through the Ages",
       "cardCount": 66,
-      "updatedAt": "2026-09-19T23:15:41.636Z"
+      "updatedAt": "2026-09-20T23:19:26.474Z"
     },
     {
       "packdropCode": "ff-art",
       "name": "Art Series: FINAL FANTASY",
       "cardCount": 130,
-      "updatedAt": "2026-09-19T23:15:41.851Z"
+      "updatedAt": "2026-09-20T23:19:26.744Z"
     },
     {
       "packdropCode": "eoe-main",
       "name": "Edge of Eternities",
       "cardCount": 414,
-      "updatedAt": "2026-09-19T23:15:42.072Z"
+      "updatedAt": "2026-09-20T23:19:27.030Z"
     },
     {
       "packdropCode": "eoe-commander",
       "name": "Commander: Edge of Eternities",
       "cardCount": 213,
-      "updatedAt": "2026-09-19T23:15:42.286Z"
+      "updatedAt": "2026-09-20T23:19:27.306Z"
     },
     {
       "packdropCode": "eoe-bonus",
       "name": "Edge of Eternities: Stellar Sights",
       "cardCount": 180,
-      "updatedAt": "2026-09-19T23:15:42.503Z"
+      "updatedAt": "2026-09-20T23:19:27.579Z"
     },
     {
       "packdropCode": "eoe-art",
       "name": "Art Series: Edge of Eternities",
       "cardCount": 107,
-      "updatedAt": "2026-09-19T23:15:42.717Z"
+      "updatedAt": "2026-09-20T23:19:27.851Z"
     },
     {
       "packdropCode": "mtg-special-guests",
       "name": "Special Guests",
       "cardCount": 173,
-      "updatedAt": "2026-09-19T23:15:42.931Z"
+      "updatedAt": "2026-09-20T23:19:28.122Z"
     },
     {
       "packdropCode": "spm-main",
       "name": "Marvel's Spider-Man",
       "cardCount": 292,
-      "updatedAt": "2026-09-19T23:15:43.148Z"
+      "updatedAt": "2026-09-20T23:19:28.400Z"
     },
     {
       "packdropCode": "spm-art",
       "name": "Art Series: Marvel's Spider-Man",
       "cardCount": 108,
-      "updatedAt": "2026-09-19T23:15:43.360Z"
+      "updatedAt": "2026-09-20T23:19:28.675Z"
     },
     {
       "packdropCode": "spm-welcome",
       "name": "Marvel's Spider-Man: Eternal-Legal",
       "cardCount": 26,
-      "updatedAt": "2026-09-19T23:15:43.574Z"
+      "updatedAt": "2026-09-20T23:19:28.944Z"
     },
     {
       "packdropCode": "spm-bonus",
       "name": "Marvel Universe Eternal-Legal",
       "cardCount": 100,
-      "updatedAt": "2026-09-19T23:15:43.784Z"
+      "updatedAt": "2026-09-20T23:19:29.214Z"
     }
   ]
 }
