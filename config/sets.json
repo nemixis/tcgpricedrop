@@ -38,6 +38,18 @@
     "groupId": 24448
   },
   {
+    "packdropCode": "30th-c",
+    "name": "30th Classic Collection",
+    "categoryId": 3,
+    "groupId": 24837
+  },
+  {
+    "packdropCode": "30th",
+    "name": "30th Celebration",
+    "categoryId": 3,
+    "groupId": 24722
+  },
+  {
     "packdropCode": "ff-main",
     "name": "FINAL FANTASY",
     "game": "magic",
