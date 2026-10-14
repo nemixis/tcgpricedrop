@@ -139,5 +139,21 @@
     "game": "magic",
     "categoryId": 1,
     "groupId": 24432
+  },
+  { "packdropCode": "tla-main",
+    "name": "Avatar: The Last Airbender",
+    "game": "magic", "categoryId": 1,
+    "groupId": 24421
+  },
+  { "packdropCode": "tle-main",
+    "name": "Avatar: The Last Airbender: Eternal-Legal",
+    "game": "magic", "categoryId": 1,
+    "groupId": 24422
+  },
+  { "packdropCode": "tla-art",
+    "name": "Art Series: Avatar: The Last Airbender",
+    "game": "magic",
+    "categoryId": 1,
+    "groupId": 24527
   }
 ]
