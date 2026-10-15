@@ -50,6 +50,12 @@
     "groupId": 24722
   },
   {
+    "packdropCode": "blk",
+    "name": "Black Bolt",
+    "categoryId": 3,
+    "groupId": 24325
+  },
+  {
     "packdropCode": "ff-main",
     "name": "FINAL FANTASY",
     "game": "magic",
