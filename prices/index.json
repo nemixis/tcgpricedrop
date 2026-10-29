@@ -1,173 +1,173 @@
 {
-  "updatedAt": "2026-10-28T00:35:22.818Z",
+  "updatedAt": "2026-10-29T01:04:48.760Z",
   "sets": [
     {
       "packdropCode": "mep",
       "name": "Perfect Order",
       "cardCount": 124,
-      "updatedAt": "2026-10-28T00:35:16.546Z"
+      "updatedAt": "2026-10-29T01:04:42.890Z"
     },
     {
       "packdropCode": "ah",
       "name": "Ascended Heroes",
       "cardCount": 575,
-      "updatedAt": "2026-10-28T00:35:16.788Z"
+      "updatedAt": "2026-10-29T01:04:43.118Z"
     },
     {
       "packdropCode": "cri",
       "name": "Chaos Ascendant",
       "cardCount": 122,
-      "updatedAt": "2026-10-28T00:35:17.020Z"
+      "updatedAt": "2026-10-29T01:04:43.334Z"
     },
     {
       "packdropCode": "pbl",
       "name": "Pitch Black",
       "cardCount": 120,
-      "updatedAt": "2026-10-28T00:35:17.250Z"
+      "updatedAt": "2026-10-29T01:04:43.549Z"
     },
     {
       "packdropCode": "meg",
       "name": "Mega Evolution",
       "cardCount": 188,
-      "updatedAt": "2026-10-28T00:35:17.483Z"
+      "updatedAt": "2026-10-29T01:04:43.767Z"
     },
     {
       "packdropCode": "pfl",
       "name": "Phantasmal Flames",
       "cardCount": 130,
-      "updatedAt": "2026-10-28T00:35:17.713Z"
+      "updatedAt": "2026-10-29T01:04:43.984Z"
     },
     {
       "packdropCode": "30th-c",
       "name": "30th Classic Collection",
       "cardCount": 30,
-      "updatedAt": "2026-10-28T00:35:17.940Z"
+      "updatedAt": "2026-10-29T01:04:44.199Z"
     },
     {
       "packdropCode": "30th",
       "name": "30th Celebration",
       "cardCount": 161,
-      "updatedAt": "2026-10-28T00:35:18.171Z"
+      "updatedAt": "2026-10-29T01:04:44.415Z"
     },
     {
       "packdropCode": "blk",
       "name": "Black Bolt",
       "cardCount": 324,
-      "updatedAt": "2026-10-28T00:35:18.405Z"
+      "updatedAt": "2026-10-29T01:04:44.633Z"
     },
     {
       "packdropCode": "ff-main",
       "name": "FINAL FANTASY",
       "cardCount": 649,
-      "updatedAt": "2026-10-28T00:35:18.648Z"
+      "updatedAt": "2026-10-29T01:04:44.860Z"
     },
     {
       "packdropCode": "ff-commander",
       "name": "Commander: FINAL FANTASY",
       "cardCount": 818,
-      "updatedAt": "2026-10-28T00:35:18.891Z"
+      "updatedAt": "2026-10-29T01:04:45.089Z"
     },
     {
       "packdropCode": "ff-bonus",
       "name": "FINAL FANTASY: Through the Ages",
       "cardCount": 66,
-      "updatedAt": "2026-10-28T00:35:19.120Z"
+      "updatedAt": "2026-10-29T01:04:45.304Z"
     },
     {
       "packdropCode": "ff-art",
       "name": "Art Series: FINAL FANTASY",
       "cardCount": 130,
-      "updatedAt": "2026-10-28T00:35:19.349Z"
+      "updatedAt": "2026-10-29T01:04:45.516Z"
     },
     {
       "packdropCode": "eoe-main",
       "name": "Edge of Eternities",
       "cardCount": 414,
-      "updatedAt": "2026-10-28T00:35:19.580Z"
+      "updatedAt": "2026-10-29T01:04:45.734Z"
     },
     {
       "packdropCode": "eoe-commander",
       "name": "Commander: Edge of Eternities",
       "cardCount": 213,
-      "updatedAt": "2026-10-28T00:35:19.812Z"
+      "updatedAt": "2026-10-29T01:04:45.953Z"
     },
     {
       "packdropCode": "eoe-bonus",
       "name": "Edge of Eternities: Stellar Sights",
       "cardCount": 180,
-      "updatedAt": "2026-10-28T00:35:20.043Z"
+      "updatedAt": "2026-10-29T01:04:46.169Z"
     },
     {
       "packdropCode": "eoe-art",
       "name": "Art Series: Edge of Eternities",
-      "cardCount": 104,
-      "updatedAt": "2026-10-28T00:35:20.270Z"
+      "cardCount": 105,
+      "updatedAt": "2026-10-29T01:04:46.382Z"
     },
     {
       "packdropCode": "mtg-special-guests",
       "name": "Special Guests",
       "cardCount": 173,
-      "updatedAt": "2026-10-28T00:35:20.498Z"
+      "updatedAt": "2026-10-29T01:04:46.599Z"
     },
     {
       "packdropCode": "spm-main",
       "name": "Marvel's Spider-Man",
       "cardCount": 292,
-      "updatedAt": "2026-10-28T00:35:20.732Z"
+      "updatedAt": "2026-10-29T01:04:46.816Z"
     },
     {
       "packdropCode": "spm-art",
       "name": "Art Series: Marvel's Spider-Man",
       "cardCount": 109,
-      "updatedAt": "2026-10-28T00:35:20.959Z"
+      "updatedAt": "2026-10-29T01:04:47.032Z"
     },
     {
       "packdropCode": "spm-welcome",
       "name": "Marvel's Spider-Man: Eternal-Legal",
       "cardCount": 26,
-      "updatedAt": "2026-10-28T00:35:21.186Z"
+      "updatedAt": "2026-10-29T01:04:47.245Z"
     },
     {
       "packdropCode": "spm-bonus",
       "name": "Marvel Universe Eternal-Legal",
       "cardCount": 100,
-      "updatedAt": "2026-10-28T00:35:21.416Z"
+      "updatedAt": "2026-10-29T01:04:47.459Z"
     },
     {
       "packdropCode": "tla-main",
       "name": "Avatar: The Last Airbender",
       "cardCount": 475,
-      "updatedAt": "2026-10-28T00:35:21.650Z"
+      "updatedAt": "2026-10-29T01:04:47.679Z"
     },
     {
       "packdropCode": "tle-main",
       "name": "Avatar: The Last Airbender: Eternal-Legal",
       "cardCount": 318,
-      "updatedAt": "2026-10-28T00:35:21.884Z"
+      "updatedAt": "2026-10-29T01:04:47.898Z"
     },
     {
       "packdropCode": "tla-art",
       "name": "Art Series: Avatar: The Last Airbender",
-      "cardCount": 104,
-      "updatedAt": "2026-10-28T00:35:22.116Z"
+      "cardCount": 103,
+      "updatedAt": "2026-10-29T01:04:48.113Z"
     },
     {
       "packdropCode": "ecl-main",
       "name": "Lorwyn Eclipsed",
       "cardCount": 413,
-      "updatedAt": "2026-10-28T00:35:22.352Z"
+      "updatedAt": "2026-10-29T01:04:48.331Z"
     },
     {
       "packdropCode": "ecl-art",
       "name": "Art Series: Lorwyn Eclipsed",
       "cardCount": 108,
-      "updatedAt": "2026-10-28T00:35:22.581Z"
+      "updatedAt": "2026-10-29T01:04:48.544Z"
     },
     {
       "packdropCode": "ecc-main",
       "name": "Commander: Lorwyn Eclipsed",
       "cardCount": 195,
-      "updatedAt": "2026-10-28T00:35:22.816Z"
+      "updatedAt": "2026-10-29T01:04:48.759Z"
     }
   ]
 }
