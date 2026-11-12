@@ -56,6 +56,12 @@
     "groupId": 24325
   },
   {
+    "packdropCode": "dlr",
+    "name": "Delta Reign",
+    "categoryId": 3,
+    "groupId": 24831
+  },
+  {
     "packdropCode": "ff-main",
     "name": "FINAL FANTASY",
     "game": "magic",
