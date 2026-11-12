@@ -185,5 +185,29 @@
     "game": "magic",
     "categoryId": 1,
     "groupId": 24464
+  },
+  { "packdropCode": "tmt-main",
+    "name": "Teenage Mutant Ninja Turtles",
+    "game": "magic",
+    "categoryId": 1,
+    "groupId": 24495
+  },
+  { "packdropCode": "tmt-commander",
+    "name": "Commander: Teenage Mutant Ninja Turtles",
+    "game": "magic",
+    "categoryId": 1,
+    "groupId": 24496
+  },
+  { "packdropCode": "tmt-bonus",
+    "name": "Teenage Mutant Ninja Turtles Source Material",
+    "game": "magic",
+    "categoryId": 1,
+    "groupId": 24497
+  },
+  { "packdropCode": "tmt-art",
+    "name": "Art Series: Teenage Mutant Ninja Turtles",
+    "game": "magic",
+    "categoryId": 1,
+    "groupId": 24626
   }
 ]
