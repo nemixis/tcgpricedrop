@@ -90,6 +90,13 @@
     "groupId": 1452
   },
   {
+    "packdropCode": "pop5",
+    "name": "POP Series 5",
+    "game": "pokemon",
+    "categoryId": 3,
+    "groupId": 1439
+  },
+  {
     "packdropCode": "ff-main",
     "name": "FINAL FANTASY",
     "game": "magic",
